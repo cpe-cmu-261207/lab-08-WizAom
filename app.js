@@ -45,7 +45,6 @@ app.delete("/courses/:id", (req, res) =>{
   let size = data.courses.length;
   const {id} = req.params;
   data.courses = data.courses.filter(date => date.courseId !== Number(id))
-
   if(data.courses.length < size){
     let sum = 0;
     let w = 0;
@@ -72,7 +71,6 @@ app.post("/addCourse",(req,res) => {
   }
   if (courseId !== undefined && courseName !== undefined && credit !== undefined && gpa !== undefined) {
     courses.courses.push(newCourse)
-
     const text = fs.readFileSync('myCourses.json','utf8');
     const data = JSON.parse(text);
     let sum = 0;
